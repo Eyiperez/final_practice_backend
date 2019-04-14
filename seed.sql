@@ -1,0 +1,24 @@
+DROP DATABASE IF EXISTS movies;
+CREATE DATABASE movies;
+
+\c movies;
+
+CREATE TABLE genres (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR UNIQUE NOT NULL
+);
+
+CREATE TABLE movies (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR UNIQUE NOT NULL,
+  genre_id INT REFERENCES genres(id) NOT NULL,
+  img_url VARCHAR NULL
+);
+
+CREATE TABLE ratings (
+  id SERIAL PRIMARY KEY,
+  stars VARCHAR UNIQUE NOT NULL,
+  genre_id INT REFERENCES genres(id) NOT NULL,
+  img_url VARCHAR NULL
+);
+
