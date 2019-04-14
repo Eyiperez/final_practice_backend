@@ -10,7 +10,7 @@ MoviesService.create = (title, genre_id, img_url) => {
 
 //GET ALL MOVIES
 MoviesService.getAll = () => {
-    const sql = `SELECT * FROM movies;`;
+    const sql = `SELECT * FROM movies`;
     return db.any(sql);
 }
 
